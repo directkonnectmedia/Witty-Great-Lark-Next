@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import Script from 'dangerous-html/react'
 import { useTranslations } from 'next-intl'
@@ -7,6 +8,10 @@ import { useTranslations } from 'next-intl'
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 import EstimateWizard from '../components/estimate-wizard'
+import PhotoGallery from '../components/photo-gallery'
+import GALLERY_PHOTOS from '../lib/gallery-photos'
+
+const HOMEPAGE_PREVIEW_PHOTOS = GALLERY_PHOTOS.slice(0, 4)
 
 const Home = (props) => {
   const [wizardOpen, setWizardOpen] = useState(false)
@@ -41,6 +46,10 @@ const Home = (props) => {
             <div className="hero-overlay"></div>
           </div>
           <div className="hero-content">
+            <div className="hero-logo" aria-label="SlatePeak Roofing">
+              <span className="hero-logo-text">SlatePeak</span>
+              <span className="hero-logo-accent">Roofing</span>
+            </div>
             <h1 className="home-hero-title hero-title">
               Roofing Done Right. Built to Last.
             </h1>
@@ -111,7 +120,7 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <section className="services-carousel-section">
+        <section id="services" className="services-carousel-section">
           <div className="carousel-header">
             <h2 className="section-title">Our Specialized Services</h2>
             <p className="section-content">
@@ -339,64 +348,20 @@ const Home = (props) => {
         <section id="gallery" className="gallery-teaser-section">
           <div className="gallery-header">
             <h2 className="section-title">Take a Peek at Our Recent Work</h2>
-            <div className="gallery-filters">
-              <button className="filter-chip active">All</button>
-              <button className="filter-chip">Residential</button>
-              <button className="filter-chip">Commercial</button>
-              <button className="filter-chip">Repairs</button>
-            </div>
+            <p className="section-content gallery-intro">
+              A small preview — click any photo to take a closer look.
+            </p>
           </div>
-          <div className="gallery-grid">
-            <div className="gallery-item">
-              <img
-                src="https://images.pexels.com/photos/33404981/pexels-photo-33404981.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                alt="Roof Replacement Project"
-              />
-              <div className="gallery-overlay">
-                <span className="project-tag">Replacement</span>
-                <h4 className="project-title">Fort Worth Estate</h4>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <img
-                src="https://images.pexels.com/photos/33404080/pexels-photo-33404080.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                alt="Synthetic Slate Installation"
-              />
-              <div className="gallery-overlay">
-                <span className="project-tag">Premium</span>
-                <h4 className="project-title">Synthetic Slate Install</h4>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <img
-                src="https://images.pexels.com/photos/34304714/pexels-photo-34304714.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                alt="Weatherford Project"
-              />
-              <div className="gallery-overlay">
-                <span className="project-tag">Residential</span>
-                <h4 className="project-title">Modern Farmhouse</h4>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <img
-                src="https://images.pexels.com/photos/32050401/pexels-photo-32050401.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                alt="Commercial Roofing Crew"
-              />
-              <div className="gallery-overlay">
-                <span className="project-tag">Commercial</span>
-                <h4 className="project-title">Industrial Complex</h4>
-              </div>
-            </div>
-          </div>
+          <PhotoGallery photos={HOMEPAGE_PREVIEW_PHOTOS} variant="preview" />
           <div className="gallery-footer">
-            <a href="#">
-              <div className="btn btn-primary btn-lg">
+            <Link href="/gallery">
+              <a className="btn btn-primary btn-lg">
                 <span>View Full Project Gallery</span>
-              </div>
-            </a>
+              </a>
+            </Link>
           </div>
         </section>
-        <section className="process-snapshot-section">
+        <section id="process" className="process-snapshot-section">
           <div className="section-container">
             <div className="process-header">
               <h2 className="section-title">How We Work</h2>
@@ -506,7 +471,7 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <section className="testimonials-section">
+        <section id="reviews" className="testimonials-section">
           <div className="featured-testimonial">
             <div className="testimonial-image">
               <img
@@ -790,7 +755,7 @@ opacity: 0;}}
     })
   }, observerOptions)
 
-  document.querySelectorAll(".service-card, .stat-card, .gallery-item, .process-step, .review-card").forEach((el) => {
+  document.querySelectorAll(".service-card, .stat-card, .photo-card, .process-step, .review-card").forEach((el) => {
     el.style.opacity = "0"
     el.style.transform = "translateY(20px)"
     el.style.transition = "all 0.6s ease-out"

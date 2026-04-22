@@ -109,46 +109,41 @@ const Navigation = (props) => {
                 </a>
               </Link>
               <div className="navigation-desktop-links">
-                <Link href="/">
+                <Link href="/#services">
                   <a>
                     <div className="navigation-link">
                       <span>Services</span>
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/gallery">
                   <a>
                     <div className="navigation-link">
                       <span>Gallery</span>
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/#reviews">
                   <a>
                     <div className="navigation-link">
                       <span>Reviews</span>
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/#process">
                   <a>
                     <div className="navigation-link">
                       <span>About</span>
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
-                  <a>
-                    <div className="navigation-link">
-                      <span>Contact</span>
-                    </div>
-                  </a>
-                </Link>
               </div>
               <div className="navigation-actions">
-                <button className="btn-md navigation-cta btn btn-accent">
-                  Get Free Estimate
-                </button>
+                <Link href="/#estimate-wizard">
+                  <a className="btn-md navigation-cta btn btn-accent">
+                    Get Free Estimate
+                  </a>
+                </Link>
                 <button
                   id="mobileMenuToggle"
                   aria-label="Toggle Menu"
@@ -208,46 +203,41 @@ const Navigation = (props) => {
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/#services">
                   <a>
                     <div className="navigation-mobile-link">
                       <span>Services</span>
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/gallery">
                   <a>
                     <div className="navigation-mobile-link">
                       <span>Gallery</span>
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/#reviews">
                   <a>
                     <div className="navigation-mobile-link">
                       <span>Reviews</span>
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/#process">
                   <a>
                     <div className="navigation-mobile-link">
                       <span>About</span>
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
-                  <a>
-                    <div className="navigation-mobile-link">
-                      <span>Contact</span>
-                    </div>
-                  </a>
-                </Link>
               </div>
               <div className="navigation-mobile-footer">
-                <button className="navigation-mobile-cta btn btn-accent btn-xl">
-                  Get Free Estimate
-                </button>
+                <Link href="/#estimate-wizard">
+                  <a className="navigation-mobile-cta btn btn-accent btn-xl">
+                    Get Free Estimate
+                  </a>
+                </Link>
                 <div className="navigation-mobile-contact">
                   <p className="section-content">(555) 766-3464</p>
                   <p className="section-content">info@slatepeakroofing.com</p>
@@ -321,8 +311,8 @@ transform: translateY(0);}}
   mobileToggle.addEventListener("click", openMenu)
   mobileClose.addEventListener("click", closeMenu)
 
-  // Close menu on link click
-  const mobileLinks = document.querySelectorAll(".navigation-mobile-link")
+  // Close menu on link / CTA click
+  const mobileLinks = document.querySelectorAll(".navigation-mobile-link, .navigation-mobile-cta")
   mobileLinks.forEach((link) => {
     link.addEventListener("click", closeMenu)
   })
