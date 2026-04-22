@@ -105,96 +105,6 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <section id="estimate-wizard" className="wizard-teaser-section">
-          <div className="section-container">
-            <div className="wizard-card">
-              <div className="wizard-header">
-                <h2 className="section-title">Start Your Estimate</h2>
-                <p className="section-content">
-                  Get an accurate roofing quote in just 4 simple steps. Fast,
-                  free, and no obligation.
-                </p>
-                <div className="wizard-progress-track">
-                  <div className="home-thq-wizard-progress-bar-elm wizard-progress-bar"></div>
-                  <span className="wizard-progress-text">Step 1 of 4</span>
-                </div>
-              </div>
-              <div className="wizard-body">
-                <div className="wizard-shortcut-grid">
-                  <div className="shortcut-item">
-                    <div className="shortcut-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M12 6v6l4 2"></path>
-                        <circle cx="12" cy="12" r="10"></circle>
-                      </svg>
-                    </div>
-                    <div className="shortcut-text">
-                      <span className="shortcut-label">Priority Level</span>
-                      <span className="shortcut-value">
-                        Emergency Repairs Available
-                      </span>
-                    </div>
-                  </div>
-                  <div className="shortcut-item">
-                    <div className="shortcut-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="m9 12l2 2l4-4"></path>
-                        <circle cx="12" cy="12" r="10"></circle>
-                      </svg>
-                    </div>
-                    <div className="shortcut-text">
-                      <span className="shortcut-label">Instant Routing</span>
-                      <span className="shortcut-value">
-                        Direct to Local Specialist
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <button
-                  id="openWizardBtn"
-                  className="wizard-launch-btn btn btn-primary btn-lg"
-                >
-                  <span>
-                    {' '}
-                    Launch Estimate Wizard
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
-                  </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M5 12h14m-7-7l7 7l-7 7"></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
         <section className="services-carousel-section">
           <div className="carousel-header">
             <h2 className="section-title">Our Specialized Services</h2>
@@ -422,7 +332,7 @@ const Home = (props) => {
         </section>
         <section id="gallery" className="gallery-teaser-section">
           <div className="gallery-header">
-            <h2 className="section-title">Our Craftsmanship in Action</h2>
+            <h2 className="section-title">Take a Peek at Our Recent Work</h2>
             <div className="gallery-filters">
               <button className="filter-chip active">All</button>
               <button className="filter-chip">Residential</button>
@@ -715,6 +625,96 @@ const Home = (props) => {
                 <span>Leave a Review</span>
               </div>
             </a>
+          </div>
+        </section>
+        <section id="estimate-wizard" className="wizard-teaser-section">
+          <div className="section-container">
+            <div className="wizard-card">
+              <div className="wizard-header">
+                <h2 className="section-title">Start Your Estimate</h2>
+                <p className="section-content">
+                  Get an accurate roofing quote in just 4 simple steps. Fast,
+                  free, and no obligation.
+                </p>
+                <div className="wizard-progress-track">
+                  <div className="home-thq-wizard-progress-bar-elm wizard-progress-bar"></div>
+                  <span className="wizard-progress-text">Step 1 of 4</span>
+                </div>
+              </div>
+              <div className="wizard-body">
+                <div className="wizard-shortcut-grid">
+                  <div className="shortcut-item">
+                    <div className="shortcut-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path d="M12 6v6l4 2"></path>
+                        <circle cx="12" cy="12" r="10"></circle>
+                      </svg>
+                    </div>
+                    <div className="shortcut-text">
+                      <span className="shortcut-label">Priority Level</span>
+                      <span className="shortcut-value">
+                        Emergency Repairs Available
+                      </span>
+                    </div>
+                  </div>
+                  <div className="shortcut-item">
+                    <div className="shortcut-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path d="m9 12l2 2l4-4"></path>
+                        <circle cx="12" cy="12" r="10"></circle>
+                      </svg>
+                    </div>
+                    <div className="shortcut-text">
+                      <span className="shortcut-label">Instant Routing</span>
+                      <span className="shortcut-value">
+                        Direct to Local Specialist
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  id="openWizardBtn"
+                  className="wizard-launch-btn btn btn-primary btn-lg"
+                >
+                  <span>
+                    {' '}
+                    Launch Estimate Wizard
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14m-7-7l7 7l-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </section>
         <section className="sticky-cta-strip">

@@ -1578,10 +1578,10 @@
  
 .service-card {
   flex: 0 0 320px;
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-primary);
   overflow: hidden;
   background: var(--color-surface);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   border-radius: var(--border-radius-lg);
 }
  
@@ -1695,7 +1695,9 @@
   height: 400px;
   overflow: hidden;
   position: relative;
+  border: 3px solid var(--color-primary);
   border-radius: var(--border-radius-lg);
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
  
 .filter-chip {
