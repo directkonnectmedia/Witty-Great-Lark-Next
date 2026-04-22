@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 
 import Script from 'dangerous-html/react'
@@ -6,8 +6,12 @@ import { useTranslations } from 'next-intl'
 
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
+import EstimateWizard from '../components/estimate-wizard'
 
 const Home = (props) => {
+  const [wizardOpen, setWizardOpen] = useState(false)
+  const openWizard = () => setWizardOpen(true)
+  const closeWizard = () => setWizardOpen(false)
   return (
     <>
       <div className="home-container1">
@@ -46,11 +50,13 @@ const Home = (props) => {
               and expert installation.
             </p>
             <div className="hero-actions">
-              <a href="#estimate-wizard">
-                <div className="btn btn-accent btn-xl">
-                  <span>Get Your Free Estimate</span>
-                </div>
-              </a>
+              <button
+                type="button"
+                onClick={openWizard}
+                className="btn btn-accent btn-xl hero-cta-btn"
+              >
+                <span>Get Your Free Estimate</span>
+              </button>
               <a href="#gallery">
                 <div className="btn btn-xl btn-outline">
                   <span>View Our Work</span>
@@ -631,15 +637,12 @@ const Home = (props) => {
           <div className="section-container">
             <div className="wizard-card">
               <div className="wizard-header">
-                <h2 className="section-title">Start Your Estimate</h2>
+                <h2 className="section-title">Tell us about your project</h2>
                 <p className="section-content">
-                  Get an accurate roofing quote in just 4 simple steps. Fast,
-                  free, and no obligation.
+                  A few quick questions — no pressure, no commitment, and no
+                  pushy follow-ups. We&apos;ll come back to you with a clear
+                  next step.
                 </p>
-                <div className="wizard-progress-track">
-                  <div className="home-thq-wizard-progress-bar-elm wizard-progress-bar"></div>
-                  <span className="wizard-progress-text">Step 1 of 4</span>
-                </div>
               </div>
               <div className="wizard-body">
                 <div className="wizard-shortcut-grid">
@@ -659,9 +662,9 @@ const Home = (props) => {
                       </svg>
                     </div>
                     <div className="shortcut-text">
-                      <span className="shortcut-label">Priority Level</span>
+                      <span className="shortcut-label">Takes about 2 minutes</span>
                       <span className="shortcut-value">
-                        Emergency Repairs Available
+                        Share as much or as little as you&apos;d like
                       </span>
                     </div>
                   </div>
@@ -676,31 +679,23 @@ const Home = (props) => {
                         stroke="currentColor"
                         strokeWidth="2"
                       >
-                        <path d="m9 12l2 2l4-4"></path>
-                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
                       </svg>
                     </div>
                     <div className="shortcut-text">
-                      <span className="shortcut-label">Instant Routing</span>
+                      <span className="shortcut-label">No spam, no hard sell</span>
                       <span className="shortcut-value">
-                        Direct to Local Specialist
+                        Just an honest conversation when you&apos;re ready
                       </span>
                     </div>
                   </div>
                 </div>
                 <button
-                  id="openWizardBtn"
+                  type="button"
+                  onClick={openWizard}
                   className="wizard-launch-btn btn btn-primary btn-lg"
                 >
-                  <span>
-                    {' '}
-                    Launch Estimate Wizard
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
-                  </span>
+                  <span>Let&apos;s get started</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -740,55 +735,17 @@ const Home = (props) => {
                 </svg>
                 <span className="phone-number">(555) 123-4567</span>
               </div>
-              <a href="#estimate-wizard">
-                <div className="btn btn-accent btn-lg">
-                  <span>Get Free Estimate</span>
-                </div>
-              </a>
+              <button
+                type="button"
+                onClick={openWizard}
+                className="btn btn-accent btn-lg sticky-cta-btn"
+              >
+                <span>Get Free Estimate</span>
+              </button>
             </div>
           </div>
         </section>
-        <dialog id="wizardModal" className="wizard-dialog">
-          <div className="wizard-modal-content">
-            <div className="wizard-modal-header">
-              <h3>Estimate Wizard</h3>
-              <button id="closeWizardBtn" className="close-btn">
-                &amp;times;
-              </button>
-            </div>
-            <div className="wizard-modal-body">
-              <div className="wizard-step-indicator">
-                <span>
-                  {' '}
-                  Step
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
-                </span>
-                <span id="currentStep">1</span>
-                <span>
-                  {' '}
-                  of 4
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
-                </span>
-              </div>
-              <div className="wizard-step-content">
-                <p>Choose your service type to begin...</p>
-                <div className="wizard-options">
-                  <button className="wizard-option-card">Repair</button>
-                  <button className="wizard-option-card">Replacement</button>
-                  <button className="wizard-option-card">Inspection</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </dialog>
+        <EstimateWizard open={wizardOpen} onClose={closeWizard} />
         <div className="home-container2">
           <div className="home-container3">
             <Script
@@ -806,22 +763,6 @@ opacity: 0;}}
             <Script
               html={`<script defer data-name="slatepeak-interactions">
 (function(){
-  const wizardModal = document.getElementById("wizardModal")
-  const openWizardBtn = document.getElementById("openWizardBtn")
-  const closeWizardBtn = document.getElementById("closeWizardBtn")
-
-  if (openWizardBtn && wizardModal) {
-    openWizardBtn.addEventListener("click", () => {
-      wizardModal.showModal()
-    })
-  }
-
-  if (closeWizardBtn && wizardModal) {
-    closeWizardBtn.addEventListener("click", () => {
-      wizardModal.close()
-    })
-  }
-
   const track = document.getElementById("servicesTrack")
   const nextBtn = document.getElementById("nextBtn")
   const prevBtn = document.getElementById("prevBtn")
